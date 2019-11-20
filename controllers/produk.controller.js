@@ -103,6 +103,50 @@ exports.update = (req, res) => {
     });
 };
 
+// Update Status
+exports.updatestatus = (req, res) => {
+    // Validate Request
+    if(!req.body) {
+        return res.status(400).send({
+            message: "Produk content can not be empty"
+        });
+    }
+
+    // Find produk and update it with the request body
+    Produk.findByIdAndUpdate(req.params.produkId, {
+        status: req.body.status,
+    }, {new: true})
+    .then(produk => {
+        //check if uid == dn3 or not
+        if(produk.uid == 'dn3' && req.body.status == false) {
+            console.log(produk._id)
+            Produk.findByIdAndRemove(produk._id)
+            .then(produks => {
+                if(!produks) {
+                    return res.status(404).send({
+                        message: "produk not found with id " + req.params.produkId
+                    });
+                }
+                res.send({message: "produk deleted successfully because uid = dn3 and set to false !"});
+            })
+            return res.status(404).send({
+                message: "produk not found with id " + req.params.produkId
+            });
+        }
+
+        res.send(produk);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "produk not found with id " + req.params.produkId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error updating produk with id " + req.params.produkId
+        });
+    });
+};
+
 // Delete data
 exports.delete = (req, res) => {
     Produk.findByIdAndRemove(req.params.produkId)
