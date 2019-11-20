@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema; 
-const Produk = require('../models/produk.model');
 
-let varianSchema = new Schema({
+const varianSchema = new Schema({
     id_produk: { type: Schema.Types.ObjectId, ref: 'Produk' },
     nama: {type: String, required: true, max: 100},
     harga_beli: {type: Number,required: true},

@@ -6,8 +6,9 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = "mongodb+srv://ibam:cahsmaga@cluster0-szn5c.mongodb.net/test?retryWrites=true&w=majority";
 const DATABASE_NAME = "backenginer_ibamaulana";
 
-const product = require('./routes/produk.route');
 const varian = require('./routes/varian.route'); 
+const product = require('./routes/produk.route');
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }))

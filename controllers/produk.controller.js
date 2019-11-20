@@ -1,7 +1,9 @@
 const Produk = require('../models/produk.model');
+const Varian = require('../models/varian.model');
+const mongoose = require('mongoose');
 
 exports.findAll = (req, res) => {
-    Produk.find()
+    Produk.find({status: true})
     .populate('varians')
     .then(Produk => {
         res.send(Produk);
@@ -26,6 +28,7 @@ exports.create = (req, res) => {
 
     // Create a Produk
     const produk = new Produk({
+        _id: new mongoose.Types.ObjectId(),
         nama: req.body.nama || "Untitled Produk", 
         uid: req.body.uid,
         kategori: req.body.kategori,
