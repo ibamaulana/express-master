@@ -1,0 +1,31 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibamaulana/express-master.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "ibamaulana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibamaulana/express-master/issues"
+  },
+  "homepage": "https://github.com/ibamaulana/express-master#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.4",
+    "mongoose": "^5.7.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
