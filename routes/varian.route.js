@@ -8,5 +8,7 @@ const varian_controller = require('../controllers/varian.controller');
 router.get('/', varian_controller.findAll);
 router.get('/:varianId', varian_controller.findOne);
 router.post('/create', varian_controller.create);
+router.put('/:varianId', varian_controller.update);
+router.delete('/:varianId', varian_controller.delete);
 module.exports = router;
 

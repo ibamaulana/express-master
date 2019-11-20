@@ -8,5 +8,7 @@ const produk_controller = require('../controllers/produk.controller');
 router.get('/', produk_controller.findAll);
 router.get('/:produkId', produk_controller.findOne);
 router.post('/create', produk_controller.create);
+router.put('/:produkId', produk_controller.update);
+router.delete('/:produkId', produk_controller.delete);
 module.exports = router;
 
