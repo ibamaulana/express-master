@@ -23,7 +23,8 @@ const mongoDB = process.env.MONGODB_URI || CONNECTION_URL;
 mongoose.connect(mongoDB,{
     useNewUrlParser: true,
     useUnifiedTopology: true ,
-    dbName: DATABASE_NAME
+    dbName: DATABASE_NAME,
+    connectTimeoutMS: 200000,
 });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
